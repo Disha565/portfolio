@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light theme tokens (dark overrides below). Components use these via Tailwind utilities. */
+:root {
+  --bg: #f6f7fb;
+  --bg-elev: #ffffff;
+  --surface: rgb(10 20 40 / 0.025);
+  --surface-2: rgb(10 20 40 / 0.05);
+  --line: rgb(10 20 40 / 0.09);
+  --line-strong: rgb(10 20 40 / 0.18);
+  --fg: #0b1222;
+  --muted: #475266;
+  --subtle: #5f687b;
+  --accent: #0f8a7e;
+  --accent-2: #4f46e5;
+  --metric: #a8540a;
+  --glow: rgb(79 70 229 / 0.12);
+  --grid: rgb(10 20 40 / 0.06);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #05070c;
+  --bg-elev: #0a0e16;
+  --surface: rgb(255 255 255 / 0.03);
+  --surface-2: rgb(255 255 255 / 0.06);
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --fg: #e8ebf2;
+  --muted: #a1a9ba;
+  --subtle: #7d8597;
+  --accent: #5ee6c5;
+  --accent-2: #8f90ff;
+  --metric: #f5c56b;
+  --glow: rgb(94 230 197 / 0.12);
+  --grid: rgb(255 255 255 / 0.045);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-metric: var(--metric);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: linear-gradient(100deg, var(--accent) 10%, var(--accent-2) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface backdrop-blur-[2px];
+  }
+
+  /* Mouse-tracked glow used by interactive cards (see useSpotlight). */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 65%);
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 select-none hover:-translate-y-0.5;
+  }
+  .btn-primary {
+    @apply bg-fg text-bg hover:shadow-[0_8px_30px_-8px_var(--accent)];
+  }
+  .btn-ghost {
+    @apply border border-line-strong bg-surface text-fg hover:border-accent/60 hover:bg-surface-2;
+  }
+  .icon-btn {
+    @apply inline-flex size-10 items-center justify-center rounded-full border border-line bg-surface text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:text-fg;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full border border-line bg-surface-2 px-2.5 py-0.5 font-mono text-[11px] tracking-tight text-muted;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs tracking-[0.18em] text-accent uppercase;
+  }
+}
+
+/* Flowing data along diagram edges. Disabled for reduced motion by the base rule above. */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.edge-flow {
+  stroke-dasharray: 4 8;
+  animation: dash-flow 1.2s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.pulse-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  animation: caret 1s steps(1) infinite;
+}

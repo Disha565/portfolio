@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://disha565.github.io/portfolio/sitemap.xml
