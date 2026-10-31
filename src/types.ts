@@ -25,6 +25,8 @@ export interface Profile {
   resumeFile: string
   siteUrl: string
   availability: string
+  /** Optional portrait shown in the About section. */
+  photo?: { src: string; alt: string }
   socials: SocialLink[]
   about: string[]
   stats: Stat[]

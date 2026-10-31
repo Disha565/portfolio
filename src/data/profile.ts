@@ -1,3 +1,4 @@
+import photo from '../assets/disha-jain.webp'
 import type { Profile } from '../types'
 
 export const profile: Profile = {
@@ -11,6 +12,7 @@ export const profile: Profile = {
   resumeFile: 'Disha_Jain_Resume.pdf',
   siteUrl: 'https://disha565.github.io/portfolio/',
   availability: 'Interested in backend, distributed systems and AI engineering roles',
+  photo: { src: photo, alt: 'Disha Jain smiling, seated on a terrace with a city skyline at night behind her' },
   socials: [
     { kind: 'github', label: 'GitHub', handle: 'disha565', href: 'https://github.com/disha565' },
     { kind: 'linkedin', label: 'LinkedIn', handle: 'disha-jain05', href: 'https://www.linkedin.com/in/disha-jain05/' },
