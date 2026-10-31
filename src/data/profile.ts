@@ -12,6 +12,8 @@ export const profile: Profile = {
   resumeFile: 'Disha_Jain_Resume.pdf',
   siteUrl: 'https://disha565.github.io/portfolio/',
   availability: 'Interested in backend and distributed systems roles',
+  // FormSubmit forwards messages to the email above. First use sends a one-time activation email.
+  contactFormEndpoint: 'https://formsubmit.co/ajax/jaindisha592001@gmail.com',
   photo: { src: photo, alt: 'Disha Jain smiling, seated on a terrace with a city skyline at night behind her' },
   socials: [
     { kind: 'github', label: 'GitHub', handle: 'disha565', href: 'https://github.com/disha565' },

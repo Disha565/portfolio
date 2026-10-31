@@ -25,6 +25,11 @@ export interface Profile {
   resumeFile: string
   siteUrl: string
   availability: string
+  /**
+   * Where the contact form POSTs (FormSubmit / Web3Forms-style JSON endpoint).
+   * Leave unset to have Send open the visitor's email app instead.
+   */
+  contactFormEndpoint?: string
   /** Optional portrait shown in the About section. */
   photo?: { src: string; alt: string }
   socials: SocialLink[]
