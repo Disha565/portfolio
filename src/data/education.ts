@@ -26,7 +26,7 @@ export const education: Education[] = [
 ]
 
 export const achievements: Achievement[] = [
-  { value: '96.79', title: 'GATE CS 2023', detail: 'Percentile in the national Graduate Aptitude Test in Engineering, Computer Science.', icon: Trophy },
+  { value: '98.79', title: 'GATE CS 2023', detail: 'Percentile in the national Graduate Aptitude Test in Engineering, Computer Science.', icon: Trophy },
   { value: 'Top 100', title: 'PGEE 2023', detail: "Ranked in the top 100 in IIIT Hyderabad's postgraduate entrance examination.", icon: Medal },
   { value: 'Qualified', title: 'BARC OCES/DGFS 2023', detail: 'Qualified the Bhabha Atomic Research Centre OCES/DGFS selection.', icon: Award },
   { value: "Dean's List", title: 'IIIT Hyderabad', detail: "Named to the Dean's List for academic performance, Monsoon 2024.", icon: BookOpenCheck },

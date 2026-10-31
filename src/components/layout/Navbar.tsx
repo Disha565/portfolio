@@ -35,7 +35,7 @@ export function Navbar() {
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
-    const onResize = () => window.innerWidth >= 768 && setOpen(false)
+    const onResize = () => window.innerWidth >= 1024 && setOpen(false)
     window.addEventListener('keydown', onKey)
     window.addEventListener('resize', onResize)
     return () => {
@@ -63,7 +63,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => {
             const isActive = active === item.id
             return (
@@ -105,7 +105,7 @@ export function Navbar() {
           </a>
           <button
             type="button"
-            className="icon-btn size-9 md:hidden"
+            className="icon-btn size-9 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -124,7 +124,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'calc(100dvh - 4rem)' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="overflow-hidden border-t border-line bg-bg md:hidden"
+            className="overflow-hidden border-t border-line bg-bg lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-4 pt-6">
               {navItems.map((item, i) => (

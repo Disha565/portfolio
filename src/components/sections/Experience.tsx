@@ -169,7 +169,7 @@ function WorkstreamItem({ ws, index, open, onToggle }: ItemProps) {
                       <button
                         type="button"
                         onClick={() => openProject(ws.projectId!)}
-                        className="group mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent"
+                        className="group mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-accent"
                       >
                         <Network className="size-4" aria-hidden />
                         View architecture

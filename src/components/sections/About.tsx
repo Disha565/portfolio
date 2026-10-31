@@ -32,7 +32,7 @@ export function About() {
               <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 pt-16 text-white">
                 <span>
                   <span className="block font-semibold tracking-tight">{profile.name}</span>
-                  <span className="block font-mono text-xs text-white/70">{profile.roles.slice(1).join(' · ')}</span>
+                  <span className="block font-mono text-xs text-white/70">{profile.roles.join(' · ')}</span>
                 </span>
                 <span className="mb-1.5 size-2 shrink-0 rounded-full bg-[#5ee6c5] shadow-[0_0_12px_#5ee6c5]" aria-hidden />
               </figcaption>
@@ -63,11 +63,11 @@ export function About() {
             </ul>
           </Reveal>
           <Reveal delay={0.25}>
-            <dl className="grid grid-cols-2 gap-3 pt-4 sm:grid-cols-4">
+            <dl className="grid gap-3 pt-4 sm:grid-cols-3">
               {profile.stats.map((stat) => (
-                <div key={stat.label} className="card flex flex-col justify-between gap-4 p-4">
+                <div key={stat.label} className="card flex items-center gap-4 p-4 sm:flex-col sm:items-start sm:justify-between">
                   <dt className="order-2 text-xs leading-snug text-muted sm:text-sm">{stat.label}</dt>
-                  <dd className="order-1 text-2xl font-semibold tracking-tight sm:text-3xl">
+                  <dd className="order-1 min-w-[5.5rem] text-2xl font-semibold tracking-tight sm:min-w-0 sm:text-3xl">
                     <span className="text-gradient">{stat.value}</span>
                   </dd>
                 </div>

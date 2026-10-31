@@ -1,10 +1,10 @@
 # Disha Jain — Portfolio
 
-Personal portfolio of **Disha Jain**, Software Engineer (Backend Systems · Distributed Systems · AI Engineering).
+Personal portfolio of **Disha Jain**, Software Engineer (Backend Systems · Distributed Systems).
 
 **Live:** https://disha565.github.io/portfolio/
 
-Built with React, TypeScript, Vite, Tailwind CSS v4, Motion and Lucide icons. Deployed to GitHub Pages by GitHub Actions on every push to `main`.
+Built with React, TypeScript, Vite, Tailwind CSS v4, Motion and Lucide icons. A GitHub Actions CI/CD pipeline checks every push and deploys `main` to GitHub Pages.
 
 ## Features
 
@@ -25,6 +25,7 @@ Requires Node.js 20.19+ (or 22.12+).
 npm install
 npm run dev        # http://localhost:5173/portfolio/
 npm run build      # type-check + production build into dist/
+npm run verify     # sanity-check dist/ (required files, base path, no phone number)
 npm run preview    # serve the production build at http://localhost:4173/portfolio/
 ```
 
@@ -52,6 +53,7 @@ public/
 ├── Disha_Jain_Resume.pdf # downloadable resume (phone number removed)
 ├── og-image.png          # social preview
 ├── favicon.svg, robots.txt, sitemap.xml, 404.html
+scripts/verify-build.mjs  # post-build checks used by CI
 ```
 
 ## Customising content
@@ -67,7 +69,16 @@ Everything visible on the site comes from `src/data/`. You should not need to to
 
 ## Deployment
 
-`.github/workflows/deploy.yml` type-checks, builds and publishes `dist/` to GitHub Pages on every push to `main` (it can also be run manually from the Actions tab).
+`.github/workflows/ci-cd.yml` is a two-stage pipeline:
+
+| Stage | Runs on | Steps |
+| --- | --- | --- |
+| **CI** | every push to any branch, every pull request | `npm ci` → type-check → build → `npm run verify` |
+| **CD** | pushes to `main` only, after CI passes | upload `dist/` → deploy to GitHub Pages |
+
+`scripts/verify-build.mjs` fails the pipeline if a required file (resume, preview image, favicon, robots, sitemap, 404) is missing, if any asset path in `index.html` escapes the `/portfolio/` base, or if the phone number appears anywhere in the published files. A broken build never reaches the live site. The workflow can also be run manually from the Actions tab.
+
+To work safely on a change: push to a branch or open a pull request, let CI go green, then merge to `main` to deploy.
 
 One-time setup for a new repository:
 

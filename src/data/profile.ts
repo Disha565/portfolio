@@ -4,14 +4,14 @@ import type { Profile } from '../types'
 export const profile: Profile = {
   name: 'Disha Jain',
   initials: 'DJ',
-  roles: ['Software Engineer', 'Backend Systems', 'AI Engineering'],
+  roles: ['Software Engineer', 'Backend Systems'],
   headline: { lead: 'Building Scalable Systems', accent: 'Intelligent', tail: 'Applications.' },
   intro:
     'Software Developer at Coschool.ai, building the backend behind an AI-powered learning platform for K-12 schools: analytics on ClickHouse, weekly reports for the parents of 90K+ students, and LLM agents that generate and validate questions. M.Tech from IIIT Hyderabad.',
   email: 'jaindisha592001@gmail.com',
   resumeFile: 'Disha_Jain_Resume.pdf',
   siteUrl: 'https://disha565.github.io/portfolio/',
-  availability: 'Interested in backend, distributed systems and AI engineering roles',
+  availability: 'Interested in backend and distributed systems roles',
   photo: { src: photo, alt: 'Disha Jain smiling, seated on a terrace with a city skyline at night behind her' },
   socials: [
     { kind: 'github', label: 'GitHub', handle: 'disha565', href: 'https://github.com/disha565' },
@@ -26,7 +26,6 @@ export const profile: Profile = {
   stats: [
     { value: '58%', label: 'faster analytics dashboards' },
     { value: '90K+', label: 'students covered by weekly reports' },
-    { value: '96.79', label: 'GATE CS 2023 percentile' },
     { value: 'M.Tech', label: 'CSIS, IIIT Hyderabad' },
   ],
 }

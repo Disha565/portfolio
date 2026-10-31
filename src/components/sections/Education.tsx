@@ -6,7 +6,7 @@ import { Section } from '../ui/Section'
 
 export function Education() {
   return (
-    <Section id="education" index="05" eyebrow="Education & Achievements" title="Foundations in computer science and security.">
+    <Section id="education" index="05" eyebrow="Education & Achievements" title="Foundations in computer science.">
       <div className="grid gap-4 md:grid-cols-2">
         {education.map((edu, i) => (
           <Reveal key={edu.institution} delay={i * 0.08}>
