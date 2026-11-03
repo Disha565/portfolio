@@ -2,7 +2,7 @@ import { profile } from '../../data/profile'
 import { Reveal } from '../ui/Reveal'
 import { Section } from '../ui/Section'
 
-const focus = ['Backend engineering', 'Distributed systems', 'Data-heavy APIs', 'Analytics at scale', 'LLM agents & RAG']
+const focus = ['Backend engineering', 'Distributed systems', 'Data-heavy APIs', 'Analytics at scale', 'LLM pipelines & RAG']
 
 export function About() {
   return (

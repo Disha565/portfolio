@@ -7,7 +7,7 @@ export const profile: Profile = {
   roles: ['Software Engineer', 'Backend Systems'],
   headline: { lead: 'Building Scalable Systems', accent: 'Intelligent', tail: 'Applications.' },
   intro:
-    'Software Developer at Coschool.ai, building the backend behind an AI-powered learning platform for K-12 schools: analytics on ClickHouse, weekly reports for the parents of 90K+ students, and LLM agents that generate and validate questions. M.Tech from IIIT Hyderabad.',
+    'Software Developer at Coschool.ai, building the backend behind an AI-powered learning platform for K-12 schools: analytics on ClickHouse, progress reports for the parents of 90K+ students, and LLM pipelines that generate and validate questions. M.Tech from IIIT Hyderabad.',
   email: 'jaindisha592001@gmail.com',
   resumeFile: 'Disha_Jain_Resume.pdf',
   siteUrl: 'https://disha565.github.io/portfolio/',
@@ -21,13 +21,13 @@ export const profile: Profile = {
     { kind: 'leetcode', label: 'LeetCode', handle: 'DishaJain05', href: 'https://leetcode.com/u/DishaJain05/' },
   ],
   about: [
-    "I'm a backend engineer at Coschool.ai, where I build the services behind an AI-powered learning platform for K-12 students, teachers and parents. Most of my work sits where data volume meets product: dashboards that have to answer quickly, reports that go out to tens of thousands of families every week, and test sessions that have to survive a closed tab or a switch to another device.",
+    "I'm a backend engineer at Coschool.ai, where I build the services behind an AI-powered learning platform for K-12 students, teachers and parents. Most of my work sits where data volume meets product: dashboards that have to answer quickly, progress reports for tens of thousands of families, and test sessions that have to survive a closed tab or a switch to another device.",
     'Before Coschool I did my M.Tech in Computer Science and Information Security at IIIT Hyderabad. Much of that work was low-level: sockets, threads and message queues, building a peer-to-peer file sharing system in C++ and a microservice-based media converter on Kubernetes. That is where I got hooked on distributed systems, because the interesting problems show up once things run concurrently, fail partially or need to scale.',
-    'Lately I have been building with LLMs, mostly agentic pipelines in LangGraph that generate and validate questions from chapter content. I treat them like any other system: separate steps, explicit validation and rubrics, rather than trusting a single prompt to get it right.',
+    'Lately I have been building with LLMs, mostly LangGraph pipelines that generate and validate questions from chapter PDFs. I treat them like any other system: generation grounded in curriculum metadata and a separate validation step, rather than trusting a single prompt to get it right.',
   ],
   stats: [
     { value: '58%', label: 'faster analytics dashboards' },
-    { value: '90K+', label: 'students covered by weekly reports' },
+    { value: '90K+', label: 'students covered by progress reports' },
     { value: 'M.Tech', label: 'CSIS, IIIT Hyderabad' },
   ],
 }

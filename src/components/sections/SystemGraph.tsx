@@ -54,10 +54,10 @@ function anchor(from: GraphNode, to: GraphNode) {
 
 const logs = [
   { cmd: 'GET /dashboard/teacher', out: 'materialized view hit · 58% faster' },
-  { cmd: 'cron weekly-report', out: 'reports for 90K+ students' },
-  { cmd: 'agent.validate(question)', out: 'correct · complete · on-topic' },
+  { cmd: 'cron progress-report', out: 'reports for 90K+ students' },
+  { cmd: 'pipeline.validate(question)', out: 'correct · complete · aligned' },
   { cmd: 'session.resume(test)', out: '1 active session · new device' },
-  { cmd: 'report.snapshot(week)', out: 'stored · cached in redis' },
+  { cmd: 'report.save(history)', out: 'mongodb · cached in redis' },
 ]
 
 export function SystemGraph() {

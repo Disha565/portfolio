@@ -12,7 +12,7 @@ export const experience: Experience[] = [
       {
         projectId: 'analytics-dashboards',
         title: 'Role-Based Analytics Dashboards',
-        stack: ['NestJS', 'ClickHouse', 'MongoDB', 'Materialized Views', 'AWS SES'],
+        stack: ['NestJS', 'ClickHouse', 'MongoDB', 'Materialized Views', 'AWS SES', 'GitHub Actions'],
         metric: { value: '58%', label: 'faster dashboard responses' },
         challenge:
           'Teachers and principals needed homework-completion and performance views across classes, sections and subjects, and computing those metrics on every request was expensive.',
@@ -20,37 +20,40 @@ export const experience: Experience[] = [
           'Role-based dashboards for teachers using NestJS, ClickHouse and MongoDB.',
           'ClickHouse materialized views that pre-compute frequently used student-activity metrics.',
           'One-click actions: nudges for inactive students, login reminders, appreciation emails and level-up homework for students marked Needs Improvement.',
+          'GitHub Actions CI/CD workflows that automate testing, build validation and deployment of the NestJS services.',
         ],
         impact:
-          'Dashboard response times improved by 58%, and insights became actions that run without leaving the dashboard.',
-      },
-      {
-        projectId: 'weekly-reports',
-        title: 'Student Weekly Progress Reporting System',
-        stack: ['NestJS', 'MongoDB', 'ClickHouse', 'Redis'],
-        metric: { value: '90K+', label: 'students, every week' },
-        challenge:
-          "Parents had no single weekly picture of their child's learning, and reports had to be generated for every student on a fixed schedule.",
-        built: [
-          'Automated weekly reports covering class updates, learning time, homework, self-study, doubts cleared and experiential activities.',
-          'Personalized insights: inactivity alerts, weak chapters, overdue homework, pending level-ups and learning-credit reminders.',
-          'Scheduled cron jobs, fixed historical snapshots per report, and Redis caching for previously generated reports.',
-        ],
-        impact: 'Parents of 90K+ students receive a personalized, actionable report every week, with no manual effort.',
+          'Dashboard response times improved by 58%, insights became actions that run without leaving the dashboard, and backend changes ship through automated checks.',
       },
       {
         projectId: 'question-generation',
-        title: 'Agentic Question Generation & Validation',
-        stack: ['Python', 'LangGraph', 'LLMs', 'Prompt Engineering', 'AWS S3'],
-        metric: { value: '2 agents', label: 'generate → validate' },
+        title: 'LLM-Based Question Generation & Validation Pipeline',
+        stack: ['LangGraph', 'LLMs', 'Prompt Engineering', 'AWS S3', 'Milvus'],
+        metric: { value: 'PDF → Q&A', label: 'generate, validate, explain' },
         challenge:
-          'LLM-generated questions cannot go straight to students. They have to be correct, complete and relevant to the chapter, and so do questions uploaded by teachers.',
+          'LLM-generated questions cannot go straight to students. They have to be correct, complete and aligned with the chapter they come from.',
         built: [
-          'A LangGraph question-generation agent that works from teacher-uploaded chapter PDFs.',
-          'A validation agent that checks correctness, completeness and chapter/topic relevance before publication.',
-          'Context-aware concept explanations plus step-by-step solutions with rubric-based validation.',
+          'A LangGraph question-generation pipeline that works from teacher-uploaded chapter PDFs.',
+          'A validation pipeline that checks correctness, completeness and alignment with chapter content.',
+          'An AWS Lambda function that fetches topics and subtopics from the knowledge tree for generation.',
+          'Explanations and step-by-step solutions for every question.',
         ],
-        impact: 'More consistent, higher-quality student-facing questions and solutions, checked before they are published.',
+        impact:
+          'Chapter-aligned questions that are validated before use, with explanations that show students the concept and the full solution.',
+      },
+      {
+        projectId: 'weekly-reports',
+        title: 'Student Progress Reporting System',
+        stack: ['NestJS', 'MongoDB', 'ClickHouse', 'Redis'],
+        metric: { value: '90K+', label: 'students covered' },
+        challenge:
+          "Parents had no single picture of their child's academic performance, homework and learning activities, and reports had to be produced for every student automatically.",
+        built: [
+          'An automated progress reporting system covering academic performance, homework and learning activities.',
+          'Personalized insights: weak chapters, inactivity, overdue homework and areas requiring attention.',
+          'Scheduled cron jobs, historical reports stored in MongoDB, and Redis caching for faster retrieval.',
+        ],
+        impact: 'Parents of 90K+ students receive personalized, actionable progress reports, generated with no manual effort.',
       },
       {
         projectId: 'mock-test-engine',
@@ -60,12 +63,12 @@ export const experience: Experience[] = [
         challenge:
           'Students pause tests, switch devices and open the same test in another tab, all of which can lose answers or create conflicting attempts.',
         built: [
-          'End-to-end engine with pause/resume, cross-device continuation and saved answers.',
-          'Test-specific time limits, inactivity timeouts and a single active session per student.',
-          'Post-test reports with score, accuracy, time per question, revisits and answer changes.',
+          'End-to-end engine with pause/resume, cross-device continuation, saved answers, time limits and inactivity handling.',
+          'Single active test session handling across devices and tabs.',
+          'Post-test analytics with score, accuracy, time per question, revisits and answer changes.',
         ],
         impact:
-          'No duplicate attempts or conflicting answers, plus detailed reports that show students exactly where they lost marks.',
+          'No duplicate attempts or conflicting answers, plus detailed reports that help students identify areas for improvement.',
       },
     ],
   },
